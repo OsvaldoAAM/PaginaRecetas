@@ -105,3 +105,8 @@ body {
     border-radius: 8px;
     width: 200px;
 }
+
+canvas {
+    max-width: 100%;
+    height: 400px;
+}
