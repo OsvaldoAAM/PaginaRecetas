@@ -14,6 +14,22 @@ namespace PaginaRecetas.Controllers
         {
             return View();
         }
+        public ActionResult GestionElCtlg()
+        {
+            return View();
+        }
+        public ActionResult GestionElDest()
+        {
+            return View();
+        }
+        public ActionResult Reportes()
+        {
+            return View();
+        }
+        public ActionResult RectNuevas()
+        {
+            return View();
+        }
 
         // GET: AdminController/Details/5
         public ActionResult Details(int id)
