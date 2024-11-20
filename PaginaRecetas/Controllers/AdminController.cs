@@ -10,6 +10,10 @@ namespace PaginaRecetas.Controllers
         {
             return View();
         }
+        public ActionResult GestionUs()
+        {
+            return View();
+        }
 
         // GET: AdminController/Details/5
         public ActionResult Details(int id)
