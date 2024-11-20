@@ -210,3 +210,21 @@ table th {
 .action-menu:active + .dropdown-menu {
     display: block;
 }
+
+/**/
+
+
+.delete-icon {
+    color: red;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.delete-icon:hover {
+        color: darkred;
+}
+
+
+.add-featured-btn i {
+    margin-right: 8px;
+}
