@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace PaginaRecetas.Models.dbModels;
 
-public partial class BdPrecetasContext : DbContext
+public partial class BdPrecetasContext : IdentityDbContext<ApplicationUser,IdentityRole,int>
 {
     public BdPrecetasContext()
     {
@@ -31,22 +33,17 @@ public partial class BdPrecetasContext : DbContext
 
     public virtual DbSet<ReportesReceta> ReportesRecetas { get; set; }
 
-    public virtual DbSet<Rol> Rols { get; set; }
-
     public virtual DbSet<Tiempo> Tiempos { get; set; }
 
     public virtual DbSet<Tipo> Tipos { get; set; }
 
-    public virtual DbSet<Usuario> Usuarios { get; set; }
-
     public virtual DbSet<ValoracionReceta> ValoracionRecetas { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS01;Database=BD_PRecetas;Trusted_Connection=True;TrustServerCertificate=True;");
-
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
+        base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Comentario>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__comentar__3213E83F432299F6");
@@ -145,29 +142,7 @@ public partial class BdPrecetasContext : DbContext
                 .HasConstraintName("FK__reportes___recet__778AC167");
         });
 
-        modelBuilder.Entity<Rol>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__rol__3213E83FE6604BB0");
 
-            entity.HasMany(d => d.Permisos).WithMany(p => p.Rols)
-                .UsingEntity<Dictionary<string, object>>(
-                    "RolesPermiso",
-                    r => r.HasOne<Permiso>().WithMany()
-                        .HasForeignKey("PermisoId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__roles_per__permi__4F7CD00D"),
-                    l => l.HasOne<Rol>().WithMany()
-                        .HasForeignKey("RolId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__roles_per__rol_i__4E88ABD4"),
-                    j =>
-                    {
-                        j.HasKey("RolId", "PermisoId").HasName("PK__roles_pe__0939B2DFA368839A");
-                        j.ToTable("roles_permisos");
-                        j.IndexerProperty<int>("RolId").HasColumnName("rol_id");
-                        j.IndexerProperty<int>("PermisoId").HasColumnName("permiso_id");
-                    });
-        });
 
         modelBuilder.Entity<Tiempo>(entity =>
         {
@@ -177,68 +152,6 @@ public partial class BdPrecetasContext : DbContext
         modelBuilder.Entity<Tipo>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__tipo__3213E83F218B9CA3");
-        });
-
-        modelBuilder.Entity<Usuario>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__usuarios__3213E83F592D27FB");
-
-            entity.HasMany(d => d.Receta1).WithMany(p => p.UsuariosNavigation)
-                .UsingEntity<Dictionary<string, object>>(
-                    "RecetasGuardada",
-                    r => r.HasOne<Receta>().WithMany()
-                        .HasForeignKey("RecetaId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__recetas_g__recet__7C4F7684"),
-                    l => l.HasOne<Usuario>().WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__recetas_g__usuar__7B5B524B"),
-                    j =>
-                    {
-                        j.HasKey("UsuarioId", "RecetaId").HasName("PK__recetas___6A6B78C41E775F99");
-                        j.ToTable("recetas_guardadas");
-                        j.IndexerProperty<int>("UsuarioId").HasColumnName("usuario_id");
-                        j.IndexerProperty<int>("RecetaId").HasColumnName("receta_id");
-                    });
-
-            entity.HasMany(d => d.RecetaNavigation).WithMany(p => p.Usuarios)
-                .UsingEntity<Dictionary<string, object>>(
-                    "RecetasFavorita",
-                    r => r.HasOne<Receta>().WithMany()
-                        .HasForeignKey("RecetaId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__recetas_f__recet__00200768"),
-                    l => l.HasOne<Usuario>().WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__recetas_f__usuar__7F2BE32F"),
-                    j =>
-                    {
-                        j.HasKey("UsuarioId", "RecetaId").HasName("PK__recetas___6A6B78C446CCF14D");
-                        j.ToTable("recetas_favoritas");
-                        j.IndexerProperty<int>("UsuarioId").HasColumnName("usuario_id");
-                        j.IndexerProperty<int>("RecetaId").HasColumnName("receta_id");
-                    });
-
-            entity.HasMany(d => d.Rols).WithMany(p => p.Usuarios)
-                .UsingEntity<Dictionary<string, object>>(
-                    "UsuariosRole",
-                    r => r.HasOne<Rol>().WithMany()
-                        .HasForeignKey("RolId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__usuarios___rol_i__4BAC3F29"),
-                    l => l.HasOne<Usuario>().WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__usuarios___usuar__4AB81AF0"),
-                    j =>
-                    {
-                        j.HasKey("UsuarioId", "RolId").HasName("PK__usuarios__0224FCEB4F0C4226");
-                        j.ToTable("usuarios_roles");
-                        j.IndexerProperty<int>("UsuarioId").HasColumnName("usuario_id");
-                        j.IndexerProperty<int>("RolId").HasColumnName("rol_id");
-                    });
         });
 
         modelBuilder.Entity<ValoracionReceta>(entity =>
