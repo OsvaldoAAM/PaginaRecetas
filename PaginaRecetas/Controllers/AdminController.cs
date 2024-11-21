@@ -14,7 +14,7 @@ namespace PaginaRecetas.Controllers
         {
             return View();
         }
-        public ActionResult GestionElCtlg()
+        public ActionResult GestionFlt()
         {
             return View();
         }

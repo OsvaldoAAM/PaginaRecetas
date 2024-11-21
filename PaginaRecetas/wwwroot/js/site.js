@@ -63,4 +63,4 @@ function actualizarGrafico(chart, etiquetas, datos) {
 actualizarGrafico(categoriasChart, ['Categoría A', 'Categoría B', 'Categoría C'], [12, 19, 7]);
 
 // Ejemplo: Actualizar el gráfico de recetas con nuevos datos
-actualizarGrafico(recetasChart, ['Receta X', 'Receta Y', 'Receta Z'], [5, 15, 10]);
+actualizarGrafico(recetasChart, ['Receta X', 'Receta Y', 'Receta Z'], [5, 15, 10])
