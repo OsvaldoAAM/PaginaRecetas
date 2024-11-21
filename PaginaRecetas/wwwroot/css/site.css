@@ -293,3 +293,38 @@ button {
     color: red;
     font-size: 18px;
 }
+/**/
+table button {
+    background-color: #d8f0f0;
+    border: 1px solid #b0d4d4;
+    border-radius: 12px;
+    padding: 5px 10px;
+    color: #007575;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+   
+table button:hover {
+    background-color: #b0d4d4;
+    color: white;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f5f5f5;
+    color: #333;
+}
