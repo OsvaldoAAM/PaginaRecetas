@@ -1,64 +1,91 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - PaginaRecetas</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/PaginaRecetas.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PaginaRecetas</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Sobre">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Cuenta" asp-action="Cuenta">Log in</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Cuenta" asp-action="CrearReceta">Sign in</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            <!-- Elementos destacados -->
-            <div class="highlight-section text-center bg-light p-4 mb-4">
-                <h2>Elementos destacados</h2>
-                <div class="d-flex justify-content-center mt-3">
-                    <div class="p-2"><img src="path/to/image1.jpg" alt="Destacado 1" class="img-fluid" style="width: 100px;"></div>
-                    <div class="p-2"><img src="path/to/image2.jpg" alt="Destacado 2" class="img-fluid" style="width: 100px;"></div>
-                    <div class="p-2"><img src="path/to/image3.jpg" alt="Destacado 3" class="img-fluid" style="width: 100px;"></div>
-                </div>
-            </div>
-
-            <!-- Contenido dinámico -->
-            <div class="mt-4">
-                @RenderBody()
-            </div>
-        </main>
-    </div>
-
-    <footer class="border-top footer text-center bg-light py-3 mt-auto">
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <div class="container">
-            &copy; 2024 - PaginaRecetas - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a class="navbar-brand" href="/">
+                <img src="/path-to-logo/logo.png" alt="Logo" style="width: 40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/Home/Sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Cuenta/Cuenta">Log in</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Cuenta/CrearReceta">Sign in</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de Elementos destacados -->
+    <section class="highlight-section text-center">
+        <h2>Elementos destacados</h2>
+        <div class="d-flex justify-content-center mt-3">
+            <div class="p-2"><div class="highlight-item"></div></div>
+            <div class="p-2"><div class="highlight-item"></div></div>
+            <div class="p-2"><div class="highlight-item"></div></div>
+        </div>
+    </section>
+
+    <section class="explore-section text-center">
+        <h3>Explorar</h3>
+        <div class="d-flex justify-content-center mt-3">
+            <div class="explore-item"></div>
+            <div class="explore-item"></div>
+            <div class="explore-item"></div>
+            <div class="explore-item"></div>
+            <div class="explore-item"></div>
+        </div>
+
+        <h3 class="mt-5">Ver por:</h3>
+        <div class="filter-buttons">
+            <button class="btn btn-primary">Populares</button>
+            <button class="btn btn-primary">Recientes</button>
+            <button class="btn btn-primary">Mejor valoradas</button>
+        </div>
+    </section>
+
+    <!-- Opciones de exploración -->
+    <section class="explore-section text-center">
+        <h3>Explorar</h3>
+        <div class="d-flex justify-content-center mt-3">
+            <div class="explore-item"></div>
+            <div class="explore-item"></div>
+            <div class="explore-item"></div>
+            <div class="explore-item"></div>
+            <div class="explore-item"></div>
+        </div>
+
+        <h3 class="mt-5">Ver por:</h3>
+        <div class="filter-buttons">
+            <button class="btn btn-primary">Populares</button>
+            <button class="btn btn-primary">Recientes</button>
+            <button class="btn btn-primary">Mejor valoradas</button>
+        </div>
+    </section>
+
+    <!-- Contenido dinámico -->
+    <main role="main" class="container">
+        @RenderBody()
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 - PaginaRecetas</p>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
