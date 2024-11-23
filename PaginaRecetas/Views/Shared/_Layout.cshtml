@@ -10,34 +10,46 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom box-shadow mb-3">
+            <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PaginaRecetas</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Sobre">Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Cuenta" asp-action="Cuenta">Log in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Cuenta" asp-action="CrearReceta">Sign in</a>
                         </li>
                     </ul>
-                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            <!-- Elementos destacados -->
+            <div class="highlight-section text-center bg-light p-4 mb-4">
+                <h2>Elementos destacados</h2>
+                <div class="d-flex justify-content-center mt-3">
+                    <div class="p-2"><img src="path/to/image1.jpg" alt="Destacado 1" class="img-fluid" style="width: 100px;"></div>
+                    <div class="p-2"><img src="path/to/image2.jpg" alt="Destacado 2" class="img-fluid" style="width: 100px;"></div>
+                    <div class="p-2"><img src="path/to/image3.jpg" alt="Destacado 3" class="img-fluid" style="width: 100px;"></div>
+                </div>
+            </div>
+
+            <!-- Contenido dinámico -->
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-center bg-light py-3 mt-auto">
         <div class="container">
             &copy; 2024 - PaginaRecetas - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
