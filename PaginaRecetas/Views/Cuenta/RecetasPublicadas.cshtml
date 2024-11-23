@@ -2,17 +2,19 @@
     ViewData["Title"] = "Mis Recetas Publicadas";
 }
 
-<div class="container mt-4">
-    <h2>Mis Recetas Publicadas</h2>
-    <ul class="list-group">
-        <li class="list-group-item">
-            <span>Receta 1</span>
-            <a href="/Cuenta/EditarReceta" class="btn btn-warning btn-sm float-end">Editar</a>
-        </li>
-        <li class="list-group-item">
-            <span>Receta 2</span>
-            <a href="/Cuenta/EditarReceta" class="btn btn-warning btn-sm float-end">Editar</a>
-        </li>
-    </ul>
-    <a href="/Cuenta/CrearReceta" class="btn btn-success mt-3">Crear nueva receta</a>
+<div class="container mt-5">
+    <div class="card shadow-sm p-4">
+        <h2 class="mb-4">Mis Recetas Publicadas</h2>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>Receta 1</span>
+                <a href="/Cuenta/EditarReceta" class="btn btn-warning btn-sm">Editar</a>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>Receta 2</span>
+                <a href="/Cuenta/EditarReceta" class="btn btn-warning btn-sm">Editar</a>
+            </li>
+        </ul>
+        <a href="/Cuenta/CrearReceta" class="btn btn-success mt-3">Crear nueva receta</a>
+    </div>
 </div>
