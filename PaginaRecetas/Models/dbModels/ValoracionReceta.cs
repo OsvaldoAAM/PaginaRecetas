@@ -27,5 +27,5 @@ public partial class ValoracionReceta
 
     [ForeignKey("UsuarioId")]
     [InverseProperty("ValoracionReceta")]
-    public virtual ApplicationUser Usuario { get; set; } = null!;
+    public virtual Usuario Usuario { get; set; } = null!;
 }
