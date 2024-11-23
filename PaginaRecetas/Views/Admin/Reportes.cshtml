@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Administración";
+}
+<head>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<div class="admin-container">
+    <header class="admin-header">
+        <h1>ADMINISTRACIÓN</h1>
+    </header>
+
+    <div class="sidebar">
+        <ul>
+            <li><a asp-area="" asp-controller="Admin" asp-action="Estadisticas">Estadísticas</a></li>
+            <li><a asp-area="" asp-controller="Admin" asp-action="GestionUs">Gestión de usuarios</a></li>
+            <li><a asp-area="" asp-controller="Admin" asp-action="GestionElDest">Gestión de elementos destacados</a></li>
+            <li class="submenu">
+                <a id="gestionFiltros" asp-area="" asp-controller="Admin" asp-action="GestionFlt">Gestión de Filtros</a>
+                <ul class="submenu-items">
+                    <li><a asp-area="" asp-controller="Admin" asp-action="FiltroTipo">Tipo</a></li>
+                    <li><a asp-area="" asp-controller="Admin" asp-action="FiltroComplejidad">Complejidad</a></li>
+                    <li><a asp-area="" asp-controller="Admin" asp-action="FiltroTiempo">Tiempo</a></li>
+                    <li><a asp-area="" asp-controller="Admin" asp-action="FiltroRegion">Región</a></li>
+                </ul>
+            </li>
+            <li><a asp-area="" asp-controller="Admin" asp-action="Reportes">Reportes</a></li>
+            <li><a asp-area="" asp-controller="Admin" asp-action="RectNuevas">Recetas nuevas</a></li>
+        </ul>
+    </div>
+    <main class="main-content">
+
+        <section class="reportes">
+            <h2>Reportes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No. de reporte</th>
+                        <th>Tipo de reporte</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#43453012</td>
+                        <td>Contenido incoherente</td>
+                        <td>
+                            <button>Descartar</button>
+                            <button>Suspender receta</button>
+                            <button>Ver</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#23491113</td>
+                        <td>Contenido explícito</td>
+                        <td>
+                            <button>Descartar</button>
+                            <button>Suspender receta</button>
+                            <button>Ver</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+
+
+
+</div>
