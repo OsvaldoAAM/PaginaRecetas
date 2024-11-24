@@ -2,21 +2,21 @@
     ViewData["Title"] = "Mi Cuenta";
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/cuenta.css">
+</head>
+
 <div class="container mt-5">
     <div class="card shadow-sm p-4">
-        <h2 class="mb-3" style="color: #97c7c7;">Perfil del creador</h2>
+        <h2 class="mb-3">Perfil del creador</h2>
 
-        <div style="background-color: #cce6e6; padding: 10px; border-radius: 5px; display: inline-block; height: 100px;">
-            <strong style="color: white; font-size: 30px; margin-left:10px">[Nombre de Usuario]</strong>
+        <div class="user-info">
+            <strong>[Nombre de Usuario]</strong>
         </div>
-        
+
         <br />
 
-        
-        <a class="btn btn-primary mt-3" href="/Cuenta/RecetasPublicadas" style="color:#97c7c7; ">Recetas publicadas</a>
-        
+        <a class="btn btn-primary mt-3" href="/Cuenta/RecetasPublicadas">Recetas publicadas</a>
 
-        
-
-    </>
+    </div>
 </div>
