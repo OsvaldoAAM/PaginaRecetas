@@ -14,6 +14,11 @@ namespace PaginaRecetas.Controllers
             return View();
         }
 
+        public IActionResult signin()
+        {
+            return View();
+        }
+
         public IActionResult RecetasPublicadas()
         {
             return View();
