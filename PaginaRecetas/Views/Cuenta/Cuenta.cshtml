@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Cuenta";
+}
+
+<div class="account-container container">
+    <!-- Sección de perfil -->
+    <div class="profile-container">
+        <div class="profile-picture">
+            <i class="bi bi-person-circle"></i>
+        </div>
+        <div class="profile-details">
+            <h2>Tu perfil</h2>
+        </div>
+        <a asp-controller="Profile" asp-action="Edit" class="edit-icon" aria-label="Editar perfil">
+            <i class="bi bi-pencil"></i>
+        </a>
+    </div>
+
+    <!-- Botones de navegación -->
+    <div class="account-buttons">
+        <button class="btn btn-light">Favoritos</button>
+        <button class="btn btn-primary">Recetas guardadas</button>
+        <button class="btn btn-light">Recetas publicadas</button>
+    </div>
+
+    <!-- Recetas favoritas -->
+    <div class="row favorites-section">
+        <div class="col-md-6 col-lg-4 recipe-card">
+            <div class="recipe-image">
+                <img src="https://via.placeholder.com/100" alt="Recipe Image">
+            </div>
+
+        <!-- Lista de recetas -->
+        <div class="recipe-card">
+            <div class="recipe-image">
+                <img src="https://via.placeholder.com/100" alt="Recipe Image">
+            </div>
+                <div class="recipe-details">
+                    <h4 class="recipe-title">Título</h4>
+                    <p class="recipe-description">Lorem ipsum dolor sit amet...</p>
+                    <div class="recipe-rating">★★★★☆</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
