@@ -2,9 +2,10 @@
     font-family: Arial, sans-serif;
 }
 
-.container {
+.container:not(.navbar .container) {
     margin-top: 5rem;
 }
+
 
 .card {
     padding: 1rem;
