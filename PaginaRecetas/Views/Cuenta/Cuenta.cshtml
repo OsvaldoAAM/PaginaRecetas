@@ -1,22 +1,47 @@
 ﻿@{
-    ViewData["Title"] = "Mi Cuenta";
+    ViewData["Title"] = "Cuenta";
 }
 
-<head>
-    <link rel="stylesheet" href="~/css/cuenta.css">
-</head>
+<div class="account-container container">
+    <!-- Sección de perfil -->
+    <div class="profile-section">
+        <div class="profile-picture">
+            <i class="bi bi-person-circle"></i>
+        </div>
+        <div class="profile-info">Tu perfil</div>
+        <a href="#" class="edit-icon" aria-label="Editar perfil">
+            <i class="bi bi-pencil"></i>
+        </a>
+    </div>
 
-<div class="container mt-5">
-    <div class="card shadow-sm p-4">
-        <h2 class="mb-3">Perfil del creador</h2>
+    <!-- Botones de navegación -->
+    <div class="account-buttons">
+        <button class="btn btn-light">Favoritos</button>
+        <button class="btn btn-primary">Recetas guardadas</button>
+        <button class="btn btn-light">Recetas publicadas</button>
+    </div>
 
-        <div class="user-info">
-            <strong>[Nombre de Usuario]</strong>
+    <!-- Recetas favoritas -->
+    <div class="favorites-section">
+        <h3>Recetas Favoritas</h3>
+        <div class="filter-buttons">
+            <button class="btn">Recientes</button>
+            <button class="btn">Antiguas</button>
+            <button class="btn">Mejor valoradas</button>
         </div>
 
-        <br />
-
-        <a class="btn btn-primary mt-3" href="/Cuenta/RecetasPublicadas">Recetas publicadas</a>
-
+        <!-- Lista de recetas -->
+        <div class="recipe-card">
+            <div class="recipe-image">
+                <img src="https://via.placeholder.com/100" alt="Recipe Image">
+            </div>
+            <div class="recipe-details">
+                <h4 class="recipe-title">Título</h4>
+                <p class="recipe-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="recipe-rating">
+                    ★★★★☆
+                </div>
+            </div>
+        </div>
     </div>
 </div>
