@@ -19,7 +19,7 @@ namespace PaginaRecetas.Controllers
             return View();
         }
 
-        public IActionResult EditarReceta()
+        public IActionResult EditarCrear()
         {
             return View();
         }

@@ -1,20 +1,29 @@
 ﻿@{
-    ViewData["Title"] = "Mis Recetas Publicadas";
+    ViewData["Title"] = "Recetas Publicadas";
 }
 
-<div class="container mt-5">
-    <div class="card shadow-sm p-4">
-        <h2 class="mb-4">Mis Recetas Publicadas</h2>
-        <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>Receta 1</span>
-                <a href="/Cuenta/EditarReceta" class="btn btn-warning btn-sm">Editar</a>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>Receta 2</span>
-                <a href="/Cuenta/EditarReceta" class="btn btn-warning btn-sm">Editar</a>
-            </li>
-        </ul>
-        <a href="/Cuenta/CrearReceta" class="btn btn-success mt-3">Crear nueva receta</a>
+<div class="published-recipes-container">
+    <header>
+        <h1>Recetas Publicadas</h1>
+        <a href="/Cuenta/CrearReceta" class="btn-create-recipe">Crear Receta</a>
+    </header>
+    <div class="recipe-list">
+        @for (int i = 0; i < 4; i++)
+        {
+            <div class="recipe-item">
+                <div class="recipe-image"></div>
+                <div class="recipe-details">
+                    <h2>Título</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="btn-edit">✎</button>
+                    <button class="btn-delete">🗑</button>
+                </div>
+            </div>
+        }
     </div>
 </div>
