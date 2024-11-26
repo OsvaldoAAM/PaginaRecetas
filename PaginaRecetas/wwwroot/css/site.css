@@ -1,3 +1,48 @@
+.profile-picture img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .profile-picture img:hover {
+        transform: scale(1.1); /* Pequeño zoom al pasar el cursor */
+    }
+
+.edit-photo {
+    margin-left: 10px;
+}
+
+.filter-buttons .btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border: 1px solid var(--primary-color);
+}
+
+.filter-buttons .btn {
+    margin-right: 10px;
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .filter-buttons .btn:hover {
+        background-color: var(--hover-color);
+        color: white;
+    }
+
+.recipe-card {
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    display: none; /* Ocultas inicialmente */
+}
+
 #editar-crear-receta {
     max-width: 900px;
     margin: 0 auto;
