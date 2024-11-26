@@ -1,53 +1,54 @@
 ﻿@{
-    ViewData["Title"] = "EditarCrear";
+    ViewData["Title"] = "Editar/Crear Receta";
 }
 
-<div class="edit-recipe-container">
-    <header class="edit-header">
+<div id="editar-crear-receta">
+    <header>
         <h1>Editar/Crear</h1>
-        <div class="action-buttons">
-            <button class="btn btn-light">Cancelar</button>
-            <button class="btn btn-primary">Enviar</button>
+        <div class="editor-actions">
+            <button class="btn-cancel">Cancelar</button>
+            <button class="btn-save">Enviar</button>
         </div>
     </header>
 
     <div class="recipe-card">
-        <div class="recipe-info">
+        <div class="recipe-header">
             <div class="recipe-image">
-                <i class="bi bi-person-circle"></i>
+                <img src="https://via.placeholder.com/100" alt="Recipe Image">
             </div>
             <div class="recipe-details">
-                <h2>Título <i class="bi bi-pencil"></i></h2>
+                <h2>Título <a href="#" class="edit-icon"><i class="bi bi-pencil"></i></a></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <span>Etiquetas: <span class="tags">Etiquetas</span></span>
+                <div class="tags">
+                    <span>Etiquetas:</span>
+                    <a href="#" class="edit-icon"><i class="bi bi-pencil"></i></a>
+                </div>
                 <div class="rating">
-                    ★★★★★ <i class="bi bi-heart"></i> <i class="bi bi-bookmark"></i>
+                    ★★★★★ <span class="favorite-icon"><i class="bi bi-heart"></i></span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="recipe-details-container">
-        <div class="difficulty-time">
-            <p>Dificultad: <span class="difficulty">Fácil</span></p>
-            <p>Tiempo: <span class="time">20 min</span></p>
-            <i class="bi bi-pencil"></i>
-        </div>
+    <div class="recipe-meta">
+        <p><strong>Dificultad:</strong> <span class="difficulty-indicator"></span> <a href="#" class="edit-icon"><i class="bi bi-pencil"></i></a></p>
+        <p><strong>Tiempo:</strong> 20 min <a href="#" class="edit-icon"><i class="bi bi-pencil"></i></a></p>
+    </div>
+
+    <div class="recipe-content">
         <div class="ingredients">
-            <h3>Ingredientes:</h3>
+            <h3>Ingredientes <a href="#" class="edit-icon"><i class="bi bi-pencil"></i></a></h3>
             <ul>
                 <li>Lorem ipsum dolor sit amet.</li>
                 <li>Consectetur adipiscing elit.</li>
             </ul>
-            <i class="bi bi-pencil"></i>
         </div>
         <div class="preparation">
-            <h3>Preparación:</h3>
+            <h3>Preparación <a href="#" class="edit-icon"><i class="bi bi-pencil"></i></a></h3>
             <ul>
                 <li>Lorem ipsum dolor sit amet.</li>
                 <li>Consectetur adipiscing elit.</li>
             </ul>
-            <i class="bi bi-pencil"></i>
         </div>
     </div>
 </div>
