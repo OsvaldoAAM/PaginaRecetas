@@ -62,11 +62,6 @@
         localStorage.setItem(recipeListKey, JSON.stringify(recipes));
     }
 
-    // 4. Crear una nueva receta
-    $("#btn-create-recipe").click(function () {
-        window.location.href = "https://localhost:7205/Cuenta/EditarCrear";
-    });
-
     // 5. Editar una receta
     $(document).on("click", ".btn-edit", function () {
         const index = $(this).data("index");

@@ -1,7 +1,9 @@
 ﻿<div class="published-recipes-container">
     <header>
         <h1>Recetas Publicadas</h1>
-        <button id="btn-create-recipe" class="btn-create-recipe">Crear Receta</button>
+        <a class="btn btn-create-recipe" asp-area="" asp-controller="Cuenta" asp-action="EditarCrear">
+            Crear Receta
+       </a>
     </header>
     <div id="recipe-list" class="recipe-list">
         @for (int i = 0; i < 4; i++)
@@ -27,3 +29,6 @@
         }
     </div>
 </div>
+
+
+<script src="~/js/recetaspublicadas.js"></script>
