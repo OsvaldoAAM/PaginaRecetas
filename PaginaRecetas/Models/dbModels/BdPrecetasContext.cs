@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace PaginaRecetas.Models.dbModels;
 
-public partial class BdPrecetasContext : IdentityDbContext<ApplicationUser, IdentityRole<int>,int>
+public partial class BdPrecetasContext : DbContext
 {
     public BdPrecetasContext()
     {
@@ -17,36 +15,38 @@ public partial class BdPrecetasContext : IdentityDbContext<ApplicationUser, Iden
     {
     }
 
-    public virtual DbSet<Comentario> Comentarios { get; set; } = null!;
+    public virtual DbSet<Comentario> Comentarios { get; set; }
 
-    public virtual DbSet<Complejidad> Complejidads { get; set; } = null!;
+    public virtual DbSet<Complejidad> Complejidads { get; set; }
 
-    public virtual DbSet<EstatusReporte> EstatusReportes { get; set; } = null!;
+    public virtual DbSet<EstatusReporte> EstatusReportes { get; set; }
 
-    public virtual DbSet<Permiso> Permisos { get; set; } = null!;
+    public virtual DbSet<Permiso> Permisos { get; set; }
 
-    public virtual DbSet<Receta> Recetas { get; set; } = null!;
+    public virtual DbSet<Receta> Recetas { get; set; }
 
-    public virtual DbSet<Region> Regions { get; set; } = null!;
+    public virtual DbSet<Region> Regions { get; set; }
 
-    public virtual DbSet<ReportesComentario> ReportesComentarios { get; set; } = null!;
+    public virtual DbSet<ReportesComentario> ReportesComentarios { get; set; }
 
-    public virtual DbSet<ReportesReceta> ReportesRecetas { get; set; } = null!;
+    public virtual DbSet<ReportesReceta> ReportesRecetas { get; set; }
 
-    //public virtual DbSet<Rol> Rols { get; set; }
+    public virtual DbSet<Rol> Rols { get; set; }
 
-    public virtual DbSet<Tiempo> Tiempos { get; set; } = null!;
+    public virtual DbSet<Tiempo> Tiempos { get; set; }
 
-    public virtual DbSet<Tipo> Tipos { get; set; } = null!;
+    public virtual DbSet<Tipo> Tipos { get; set; }
 
-    //public virtual DbSet<Usuario> Usuarios { get; set; }
+    public virtual DbSet<Usuario> Usuarios { get; set; }
 
-    public virtual DbSet<ValoracionReceta> ValoracionRecetas { get; set; } = null!; 
+    public virtual DbSet<ValoracionReceta> ValoracionRecetas { get; set; }
 
-    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS01;Database=BD_PRecetas;Trusted_Connection=True;TrustServerCertificate=True;");
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Comentario>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__comentar__3213E83F432299F6");
@@ -145,7 +145,7 @@ public partial class BdPrecetasContext : IdentityDbContext<ApplicationUser, Iden
                 .HasConstraintName("FK__reportes___recet__778AC167");
         });
 
-        /*modelBuilder.Entity<Rol>(entity =>
+        modelBuilder.Entity<Rol>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__rol__3213E83FE6604BB0");
 
@@ -167,7 +167,7 @@ public partial class BdPrecetasContext : IdentityDbContext<ApplicationUser, Iden
                         j.IndexerProperty<int>("RolId").HasColumnName("rol_id");
                         j.IndexerProperty<int>("PermisoId").HasColumnName("permiso_id");
                     });
-        }); */
+        });
 
         modelBuilder.Entity<Tiempo>(entity =>
         {
@@ -179,7 +179,7 @@ public partial class BdPrecetasContext : IdentityDbContext<ApplicationUser, Iden
             entity.HasKey(e => e.Id).HasName("PK__tipo__3213E83F218B9CA3");
         });
 
-        /*modelBuilder.Entity<Usuario>(entity =>
+        modelBuilder.Entity<Usuario>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__usuarios__3213E83F592D27FB");
 
@@ -239,7 +239,7 @@ public partial class BdPrecetasContext : IdentityDbContext<ApplicationUser, Iden
                         j.IndexerProperty<int>("UsuarioId").HasColumnName("usuario_id");
                         j.IndexerProperty<int>("RolId").HasColumnName("rol_id");
                     });
-        }); */
+        });
 
         modelBuilder.Entity<ValoracionReceta>(entity =>
         {

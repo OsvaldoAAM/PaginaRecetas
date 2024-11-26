@@ -24,5 +24,5 @@ public partial class Rol
 
     [ForeignKey("RolId")]
     [InverseProperty("Rols")]
-    public virtual ICollection<ApplicationUser> Usuarios { get; set; } = new List<ApplicationUser>();
+    public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
 }

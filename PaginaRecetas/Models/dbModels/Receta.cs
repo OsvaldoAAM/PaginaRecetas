@@ -91,16 +91,16 @@ public partial class Receta
 
     [ForeignKey("UsuarioId")]
     [InverseProperty("Receta")]
-    public virtual ApplicationUser Usuario { get; set; } = null!;
+    public virtual Usuario Usuario { get; set; } = null!;
 
     [InverseProperty("Receta")]
     public virtual ICollection<ValoracionReceta> ValoracionReceta { get; set; } = new List<ValoracionReceta>();
 
     [ForeignKey("RecetaId")]
     [InverseProperty("RecetaNavigation")]
-    public virtual ICollection<ApplicationUser> Usuarios { get; set; } = new List<ApplicationUser>();
+    public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
 
     [ForeignKey("RecetaId")]
     [InverseProperty("Receta1")]
-    public virtual ICollection<ApplicationUser> UsuariosNavigation { get; set; } = new List<ApplicationUser>();
+    public virtual ICollection<Usuario> UsuariosNavigation { get; set; } = new List<Usuario>();
 }
