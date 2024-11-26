@@ -41,6 +41,12 @@ namespace PaginaRecetas.Controllers
             return View();
         }
 
+        public ActionResult FiltroTiempo()
+        {
+            return View();
+        }
+
+
         // GET: AdminController/Details/5
         public ActionResult Details(int id)
         {
