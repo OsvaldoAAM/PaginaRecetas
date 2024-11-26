@@ -34,5 +34,5 @@ public partial class Comentario
 
     [ForeignKey("UsuarioId")]
     [InverseProperty("Comentarios")]
-    public virtual Usuario Usuario { get; set; } = null!;
+    public virtual ApplicationUser Usuario { get; set; } = null!;
 }
