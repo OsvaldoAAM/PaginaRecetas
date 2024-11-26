@@ -36,6 +36,11 @@ namespace PaginaRecetas.Controllers
             return View();
         }
 
+        public ActionResult FiltroComplejidad()
+        {
+            return View();
+        }
+
         // GET: AdminController/Details/5
         public ActionResult Details(int id)
         {
