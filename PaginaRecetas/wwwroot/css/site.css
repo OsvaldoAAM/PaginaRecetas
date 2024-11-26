@@ -1,3 +1,78 @@
+.recipe-editor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.recipe-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.recipe-meta p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.edit-icon {
+    cursor: pointer;
+    color: #007b8f;
+    margin-left: 5px;
+}
+
+    .edit-icon:hover {
+        color: #005f6a;
+    }
+
+.ingredients ul, .preparation ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.delete-ingredient, .delete-step {
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+    .delete-ingredient:hover, .delete-step:hover {
+        color: darkred;
+    }
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+    .actions button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+.btn-cancel {
+    background-color: #d9534f;
+    color: white;
+}
+
+.btn-save {
+    background-color: #5cb85c;
+    color: white;
+}
+
 .recipe-item {
     display: flex;
     justify-content: space-between;
