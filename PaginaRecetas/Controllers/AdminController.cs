@@ -31,6 +31,11 @@ namespace PaginaRecetas.Controllers
             return View();
         }
 
+        public ActionResult FiltroTipo()
+        {
+            return View();
+        }
+
         // GET: AdminController/Details/5
         public ActionResult Details(int id)
         {
